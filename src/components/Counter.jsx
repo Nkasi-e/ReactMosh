@@ -2,64 +2,75 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: 0,
+    tag: [],
   };
+
+  // Rendering style dynamically
+  styles = {
+    fontSize: 15,
+    fontWeight: "bold",
+  };
+
+  // Rendering Expression dynamically
+  formatValue() {
+    const { value } = this.props.counter;
+    return value === 0 ? `Null` : `${value}`;
+  }
+
+  // Rendering classes dynamically
+  getBatchClasses = () => {
+    const { value } = this.props.counter;
+    let classes = "badge m-2 badge-";
+    classes += value === 0 ? "warning" : value <= 0 ? "danger" : "success";
+    return classes;
+  };
+
+  // Updating state
+  // handleIncrement = () => {
+  //   this.setState({ value: this.state.value + 1 });
+  // };
+
+  // handleDecrement = () => {
+  //   this.setState({ value: this.state.value - 1 });
+  // };
+
+  // Rendering list
+  // renderTag = () => {
+  //   const { tag } = this.state;
+  //   if (tag.length === 0) return <p>There are no tags</p>;
+  //   return (
+  //     <ul>
+  //       {tag.map((tag) => (
+  //         <li key={tag}>{tag}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // };
+
   render() {
     return (
       <div>
-        <h1>Class component</h1>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Decrement
+        </button>
+        <h1 style={this.styles} className={this.getBatchClasses()}>
+          {this.formatValue()}
+        </h1>
+        <button
+          onClick={() => this.props.onIncrement(this.props.counter)}
+          className="btn btn-primary btn-sm m-2"
+        >
+          Increment
+        </button>
+
+        {/* {this.state.tag.length === 0 && `Please create a new tag`}
+    <h4>{this.renderTag()}</h4>*/}
       </div>
     );
   }
 }
 
 export default Counter;
-
-// const Counter = () => {
-//   const [value, setValue] = useState(0);
-//   const formatCOunt = () => {
-//     return value === 0 ? `Null` : value;
-//   };
-//   const styles = {
-//     fontSize: 15,
-//     fontweight: "bold",
-//   };
-
-//   // Get Batch classes... Rendering classes dynamically
-//   let getBatchClasses = () => {
-//     let classes = "badge m-2 badge-";
-//     classes += value === 0 ? "warning" : value <= 0 ? "danger" : "primary";
-//     return classes;
-//   };
-
-//   const listItems = ["Magma", "React", "ts", "py"];
-
-//   //...
-//   return (
-//     <div>
-//       <button
-//         className="btn btn-danger m-1 btn-sm"
-//         onClick={() => setValue(value - 1)}
-//       >
-//         Decrement
-//       </button>
-//       <h1 style={styles} className={getBatchClasses()}>
-//         {formatCOunt()}
-//       </h1>
-//       <button
-//         className="btn btn-success m-1 btn-sm"
-//         onClick={() => setValue(value + 1)}
-//       >
-//         Increment
-//       </button>
-//       {/*Rendering list */}
-//       <ul>
-//         {listItems.map((item, id) => (
-//           <li key={id}>{item}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Counter;
