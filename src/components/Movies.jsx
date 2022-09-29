@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import catalogue from "./resource/movies";
+import Like from "./common/Like";
 
-const Movies = () => {
-  const [show, setShow] = useState(catalogue);
+const Movie = () => {
+  const [movie, setMovies] = useState(catalogue);
 
   //Delete function
-  const handleDelete = (shows) => {
-    const show = show.filter((m) => m._id !== shows._id);
-    setShow({ show });
+  const handleDelete = (movi) => {
+    const movies = movie.filter((m) => m._id !== movi._id);
+    setMovies({ movies });
+  };
+
+  // Like fn
+  const handleLike = (movi) => {
+    const movies = [...movie];
+    const index = movies.indexOf(movi);
+    movies[index] = { ...movies[index] };
+    movies[index].liked = !movies[index].liked;
+    setMovies({ movies });
   };
 
   // Dynamic conditional rendering
-  const { length: count } = show;
+  const { length: count } = movie;
   if (count === 0) return <p>There are no movies in the database</p>;
 
   return (
@@ -24,16 +34,20 @@ const Movies = () => {
             <th>Genre</th>
             <th>Stock</th>
             <th>Rate</th>
-            <th>del</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          {show.map((movies) => (
+          {movie.map((movies) => (
             <tr key={movies._id}>
               <td>{movies.title}</td>
               <td>{movies.genre.name}</td>
               <td>{movies.numberInStock}</td>
               <td>{movies.dailyRentals}</td>
+              <td>
+                <Like liked={movies.liked} onClick={() => handleLike(movies)} />
+              </td>
               <td>
                 <button
                   className="btn btn-danger btn-sm"
@@ -50,4 +64,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default Movie;
