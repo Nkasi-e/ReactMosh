@@ -23,6 +23,15 @@ class App extends Component {
     this.setState({ counters });
   };
 
+  // Decrease button fn
+  handleDecrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value--;
+    this.setState({ counters });
+  };
+
   //Reset button fn
   handleReset = () => {
     const counters = this.state.counters.map((count) => {
@@ -52,6 +61,7 @@ class App extends Component {
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}
             onReset={this.handleReset}
+            onDecrease={this.handleDecrement}
           />
         </header>
       </div>

@@ -50,20 +50,28 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
-          className="btn btn-danger btn-sm m-2"
-        >
-          Decrement
-        </button>
         <h1 style={this.styles} className={this.getBatchClasses()}>
           {this.formatValue()}
         </h1>
         <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          x
+        </button>
+
+        <button
+          onClick={() => this.props.onDecrease(this.props.counter)}
+          className="btn btn-secondary btn-sm"
+          disabled={this.props.counter.value <= 0 ? "disabled" : ""}
+        >
+          -
+        </button>
+        <button
           onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-primary btn-sm m-2"
         >
-          Increment
+          +
         </button>
 
         {/* {this.state.tag.length === 0 && `Please create a new tag`}
