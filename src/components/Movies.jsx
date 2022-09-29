@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { getMovies } from "../components/";
+import catalogue from "./resource/movies";
 
 const Movies = () => {
-  const [movie, setMovie] = useState(getMovies());
+  const [show, setShow] = useState(catalogue);
 
   //Delete function
-  const handleDelete = (movie) => {
-    const movies = movies.filter((m) => m.id !== movie.id);
-    setMovie({ movies });
+  const handleDelete = (shows) => {
+    const show = show.filter((m) => m._id !== shows._id);
+    setShow({ show });
   };
 
   // Dynamic conditional rendering
-  const { length: count } = movie;
+  const { length: count } = show;
   if (count === 0) return <p>There are no movies in the database</p>;
 
   return (
@@ -27,24 +27,25 @@ const Movies = () => {
             <th>del</th>
           </tr>
         </thead>
+        <tbody>
+          {show.map((movies) => (
+            <tr key={movies._id}>
+              <td>{movies.title}</td>
+              <td>{movies.genre.name}</td>
+              <td>{movies.numberInStock}</td>
+              <td>{movies.dailyRentals}</td>
+              <td>
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleDelete(movies)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
-      <tbody>
-        {/*map a list of item here and use the object dot notation to access them */}
-        <tr>
-          <td>{3 + 3}</td>
-          <td>{9 + 9}</td>
-          <td>{7 + 8}</td>
-          <td>{6 + 8}</td>
-          <td>
-            <button
-              className="btn btn-danger btn-sm"
-              onClick={() => handleDelete(movie)}
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
     </div>
   );
 };

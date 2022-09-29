@@ -1,0 +1,60 @@
+const catalogue = [
+  {
+    _id: "4893y903ifery9r090d9",
+    title: "terminator",
+    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    numberInStock: 6,
+    dailyRentals: 2.5,
+    publishDate: "2018-01-030290T",
+  },
+  {
+    _id: "4893y903ifery9r09av9",
+    title: "terminator",
+    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    numberInStock: 6,
+    dailyRentals: 2.5,
+    publishDate: "2018-01-030290T",
+  },
+  {
+    _id: "4893y903ifery9r090c9",
+    title: "terminator",
+    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    numberInStock: 6,
+    dailyRentals: 2.5,
+    publishDate: "2018-01-030290T",
+  },
+  {
+    _id: "4893y903iferywr090d9",
+    title: "terminator",
+    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    numberInStock: 6,
+    dailyRentals: 2.5,
+    publishDate: "2018-01-030290T",
+  },
+  {
+    _id: "4893y903iferyar090w9",
+    title: "Nhkuh",
+    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    numberInStock: 6,
+    dailyRentals: 2.5,
+    publishDate: "2018-01-030290T",
+  },
+  {
+    _id: "4893y903iferey9r090v9",
+    title: "terminator",
+    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    numberInStock: 6,
+    dailyRentals: 2.5,
+    publishDate: "2018-01-030290T",
+  },
+  {
+    _id: "4893y903ifery9r0s0v9",
+    title: "terminator",
+    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    numberInStock: 6,
+    dailyRentals: 2.5,
+    publishDate: "2018-01-030290T",
+  },
+];
+
+export default catalogue;
