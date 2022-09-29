@@ -6,6 +6,29 @@ import Navbar from "./components/Navbar";
 class App extends Component {
   state = {};
 
+  //Constructor phase
+  constructor() {
+    super();
+    console.log(`App - Constructor`);
+  }
+
+  //Mounting phase
+  componentDidMount() {
+    //Ajax call
+    console.log(`App - Mounted`);
+  }
+
+  //Update phase
+  componentDidUpdate(prevProps, prevState) {
+    console.log(`App - Update Previous Props ${prevProps}`);
+    console.log(`App - Update Previous state ${prevState}`);
+  }
+
+  //UnMount phase
+  componentWillUnmount() {
+    console.log("Component UnMount");
+  }
+
   // Incremet button fn
 
   handleIncrement = (counter) => {};
