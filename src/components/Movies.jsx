@@ -9,6 +9,7 @@ class Movie extends Component {
   state = {
     movies: catalogue,
     pageSize: 4,
+    currentPage: 1,
   };
 
   //Delete fn
@@ -25,14 +26,15 @@ class Movie extends Component {
     movies[index].liked = !movies[index].liked;
     this.setState({ movies });
   };
-  //Page change
+  //Handling Page change
   handlePageChange = (page) => {
-    console.log(page);
+    this.setState({ currentPage: page });
   };
 
   render() {
     // Dynamic conditional rendering
     const { length: count } = this.state.movies;
+    const { pageSize, currentPage } = this.state;
     if (count === 0) return <p>There are no movies in the database</p>;
     return (
       <React.Fragment>
@@ -75,8 +77,9 @@ class Movie extends Component {
         </table>
         <Pagination
           itemsCount={count}
-          pageSize={this.state.pageSize}
-          onPageChange={() => this.handlePageChange()}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={this.handlePageChange}
         />
       </React.Fragment>
     );

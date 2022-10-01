@@ -6,7 +6,7 @@ const catalogue = [
     numberInStock: 6,
     dailyRentals: 2.5,
     publishDate: "2018-01-030290T",
-    liked: true,
+    liked: false,
   },
   {
     _id: "4893y903ifery9r09av9",
