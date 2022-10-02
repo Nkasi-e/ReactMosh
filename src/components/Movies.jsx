@@ -4,11 +4,12 @@ import catalogue from "./resource/movies";
 import Like from "./common/Like";
 // Pagination component
 import Pagination from "./common/Pagination";
+import { paginate } from "../utils/paginate";
 
 class Movie extends Component {
   state = {
     movies: catalogue,
-    pageSize: 4,
+    pageSize: 5,
     currentPage: 1,
   };
 
@@ -34,8 +35,13 @@ class Movie extends Component {
   render() {
     // Dynamic conditional rendering
     const { length: count } = this.state.movies;
-    const { pageSize, currentPage } = this.state;
+    const { pageSize, currentPage, movies } = this.state;
+
     if (count === 0) return <p>There are no movies in the database</p>;
+
+    //paginate page fn
+    const moviePage = paginate(movies, currentPage, pageSize);
+
     return (
       <React.Fragment>
         <p>showing {count} movies in the database</p>
@@ -51,7 +57,7 @@ class Movie extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.movies.map((movie) => (
+            {moviePage.map((movie) => (
               <tr key={movie._id}>
                 <td>{movie.title}</td>
                 <td>{movie.genre.name}</td>
