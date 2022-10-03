@@ -27,7 +27,7 @@ const catalogue = [
   {
     _id: "4893y903iferywr090d9",
     title: "terminator",
-    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    genre: { _id: "4893y903ifery9r090v34", name: "Romance" },
     numberInStock: 6,
     dailyRentals: 2.5,
     publishDate: "2018-01-030290T",
@@ -43,7 +43,7 @@ const catalogue = [
   {
     _id: "4893y903iferey9r090v9",
     title: "terminator",
-    genre: { _id: "4893y903ifery9r090v9", name: "Action" },
+    genre: { _id: "4893y903ifery9r090bb8", name: "Thriller" },
     numberInStock: 6,
     dailyRentals: 2.5,
     publishDate: "2018-01-030290T",
