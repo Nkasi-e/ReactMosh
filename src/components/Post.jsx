@@ -1,6 +1,7 @@
 import React from "react";
+import queryString from "query-string";
 
-const Post = () => {
+const Post = ({ match, location }) => {
   return (
     <div>
       <h1>Post</h1>
