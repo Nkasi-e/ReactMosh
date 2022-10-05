@@ -1,15 +1,12 @@
-import "./App.css";
-import Counter from "./components/Counter";
-import Counter1 from "./components/Counter1";
+import Movie from "./components/Movies";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Let's start with react today</h1>
-        <Counter />
-        <Counter1 />
-      </header>
+      <main className="container">
+        <h1>Hello Movie List</h1>
+        <Movie />
+      </main>
     </div>
   );
 }
