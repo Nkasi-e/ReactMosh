@@ -1,28 +1,24 @@
-import Movie from "./components/Movies";
-import { Route, Routes, Redirect } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import Product from "./components/Product";
-import Home from "./components/Home";
-import Post from "./components/Post";
-import NotFound from "./components/NotFound";
+import Movie from './components/Movies';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Customer from './components/Customer';
+import MovieForm from './components/MovieForm';
+import Rentals from './components/Rentals';
+import NotFound from './components/NotFound';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <main className="container">
-        <NavBar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="products" element={<Product />} />
-          <Route exact path="post" element={<Post />} />
           <Route exact path="movies" element={<Movie />} />
+          <Route exact path="customers" element={<Customer />} />
+          <Route exact path="rentals" element={<Rentals />} />
+          <Route exact path="movies/:id" element={<MovieForm />} />
           <Route exact path="*" element={<NotFound />} />
-
-          {/*Route Parameter*/}
-          <Route exact path="movies/:action" element={<Movie />} />
-
-          {/*Query String*/}
-          <Route exact path="post/:year?/:month?" element={<Post />} />
+          <Route exact path="/" element={<Navigate to="movies" />} />
         </Routes>
       </main>
     </div>
