@@ -5,6 +5,7 @@ import Customer from './components/Customer';
 import MovieForm from './components/MovieForm';
 import Rentals from './components/Rentals';
 import NotFound from './components/NotFound';
+import LoginForm from './components/LoginForm';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="movies/:id" element={<MovieForm />} />
           <Route exact path="*" element={<NotFound />} />
           <Route exact path="/" element={<Navigate to="movies" />} />
+          <Route exact path="/login" element={<LoginForm />} />
         </Routes>
       </main>
     </div>
