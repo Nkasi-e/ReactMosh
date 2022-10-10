@@ -1,17 +1,20 @@
 import React from 'react';
 
-const InputForm = ({ name, label, value, onChange }) => {
+const InputForm = ({ name, label, error, ...rest }) => {
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
       <input
-        value={value}
+        {...rest}
         name={name}
-        onChange={onChange}
+        // value={value}
+        // onChange={onChange}
         id={name}
-        type="text"
+        // type={type}
         className="form-control"
       />
+      {/*Displaying validation errors*/}
+      {error && <small className="alert alert-danger">{error}</small>}
     </div>
   );
 };
